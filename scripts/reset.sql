@@ -1,0 +1,3 @@
+ALTER TABLE todoapp.todo AUTO_INCREMENT = 0;
+ALTER TABLE todoapp.user AUTO_INCREMENT = 0;
+ALTER TABLE todoapp.category AUTO_INCREMENT = 0;
