@@ -1,0 +1,22 @@
+- Create the Maven project
+	- create all the necessary packages (MVC)
+	- Decide on DTOs
+- Draw ERD
+	- Make a script for the database schema
+
+- Create the Angular project
+	- Create the necessary folders 
+		(components, modules, classes, services, directives, pipes)
+
+ideas
+- share todos
+- todos can be private and public
+- search for users or todos
+- tags for todo
+- asign todos to users
+- Todo.. deadlines
+
+optional:
+- nested todos
+- user roles
+- group table (many to many)
