@@ -13,7 +13,7 @@ ideas
 - todos can be private and public
 - search for users or todos
 - tags for todo
-- asign todos to users
+- assign todos to users
 - Todo.. deadlines
 
 optional:
