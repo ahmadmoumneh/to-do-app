@@ -4,7 +4,7 @@
  */
 package am.software.todo.app.controller;
 
-import am.software.todo.app.service.UserService;
+import am.software.todo.app.dto.Person;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import am.software.todo.app.service.PersonService;
 
 /**
  *
@@ -32,33 +33,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/todoapp/admin")
 public class AdminController {
     @Autowired 
-    private UserService userService;
+    private PersonService userService;
     
     @GetMapping("/users")
-    public List<User> getAllUsers() {
+    public List<Person> getAllUsers() {
         return this.userService.getAllUsers();
     }
     
     @PostMapping("/adduser")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<User> addUser(@RequestBody User user) {
-        User addedUser = this.userService.saveUser(user);
-        
-        if (addedUser == null)
-            return new ResponseEntity(null, HttpStatus.UNAUTHORIZED);
-        
-        return ResponseEntity.ok(addedUser);
+    public Person addUser(@RequestBody Person user) {
+        return this.userService.saveUser(user);
     }
     
     @PutMapping("/edituser/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public ResponseEntity<User> editUser(User user) {
-        boolean editedUser = this.userService.saveUser(user);
-        
-        if (!editedUser)
-            return new ResponseEntity(null,HttpStatus.UNAUTHORIZED);
-        
-        return ResponseEntity.ok(user);
+    public Person editUser(Person user) {
+        return this.userService.saveUser(user);
     }
     
     @DeleteMapping("/deleteuser/{id}")
@@ -68,12 +59,7 @@ public class AdminController {
     }
     
     @GetMapping("/user/{id}")
-    public ResponseEntity<User> getUser(@PathVariable int id) {
-        User user = this.userService.getUserById(id);
-        
-        Optional<ResponseEntity> response = 
-                Optional.of(ResponseEntity.ok(user));
-       
-        return response.orElse(new ResponseEntity(null, HttpStatus.NOT_FOUND));
+    public Person getUser(@PathVariable int id) {       
+        return this.userService.getUserById(id);
     }
 }
