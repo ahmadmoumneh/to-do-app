@@ -14,7 +14,7 @@ import java.util.List;
 public interface ToDoRepository extends JpaRepository<ToDo, Integer> {
     List<ToDo> findToDosContaining(String query);
 
-    List<ToDo> findTodosByCategory(Category category);
+    List<ToDo> findTodosByCategory(int id);
 
     List<ToDo> findToDosByIsDoneFalse();
 }
