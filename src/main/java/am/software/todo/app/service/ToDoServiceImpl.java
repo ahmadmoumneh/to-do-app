@@ -1,6 +1,7 @@
 package am.software.todo.app.service;
 
 import am.software.todo.app.dao.ToDoRepository;
+import am.software.todo.app.dto.Category;
 import am.software.todo.app.dto.ToDo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,17 +36,17 @@ public class ToDoServiceImpl implements ToDoService {
     }
 
     @Override
-    public List<ToDo> findToDosContaining(String query) {
-        return toDoRepository.findToDosContaining(query);
+    public List<ToDo> findByNameContaining(String query) {
+        return toDoRepository.findByNameContaining(query);
     }
 
     @Override
-    public List<ToDo> findToDosByCategory(int id) {
-        return toDoRepository.findTodosByCategory(id);
+    public List<ToDo> findByCategory(Category category) {
+        return toDoRepository.findByCategory(category);
     }
 
     @Override
-    public List<ToDo> findToDosByIsDoneFalse() {
-        return toDoRepository.findToDosByIsDoneFalse();
+    public List<ToDo> findByIsDoneFalse() {
+        return toDoRepository.findByIsDoneFalse();
     }
 }

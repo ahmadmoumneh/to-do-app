@@ -15,9 +15,9 @@ public interface ToDoService {
     void deleteToDoById(int id);
 
     //@ToDo: correct method name?
-    List<ToDo> findToDosContaining(String query);
+    List<ToDo> findByNameContaining(String query);
 
-    List<ToDo> findToDosByCategory(int id);
+    List<ToDo> findByCategory(Category category);
 
-    List<ToDo> findToDosByIsDoneFalse();
+    List<ToDo> findByIsDoneFalse();
 }
