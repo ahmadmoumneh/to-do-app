@@ -17,7 +17,7 @@ public interface ToDoService {
     //@ToDo: correct method name?
     List<ToDo> findByNameContaining(String query);
 
-    List<ToDo> findByCategory(Category category);
+    List<ToDo> findByCategoryId(int categoryId);
 
     List<ToDo> findByIsDoneFalse();
 }

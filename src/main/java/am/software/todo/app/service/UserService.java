@@ -4,21 +4,21 @@
  */
 package am.software.todo.app.service;
 
-import am.software.todo.app.dto.Person;
+import am.software.todo.app.dto.User;
 import java.util.List;
 
 /**
  *
  * @author ahmad
  */
-public interface PersonService {
-    List<Person> getAllUsers();
+public interface UserService {
+    List<User> getAllUsers();
     
-    Person getUserById(int id);
+    User getUserById(int id);
     
-    Person saveUser(Person user);
+    User saveUser(User user);
     
-    Person login(String username, String password);
+    User login(String username, String password);
     
     void deleteUserById(int id);
 }

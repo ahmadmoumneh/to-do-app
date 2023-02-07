@@ -4,8 +4,7 @@
  */
 package am.software.todo.app.controller;
 
-import am.software.todo.app.dto.Person;
-import java.util.Optional;
+import am.software.todo.app.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import am.software.todo.app.service.PersonService;
+import am.software.todo.app.service.UserService;
 
 /**
  *
@@ -24,17 +23,17 @@ import am.software.todo.app.service.PersonService;
 @ControllerAdvice
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api/cardealership/account")
+@RequestMapping("/api/todoapp/account")
 public class AccountController {
     
     @Autowired
-    private PersonService personService;
+    private UserService userService;
     
     @GetMapping("/login")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public Person login(@RequestParam String username, 
+    public User login(@RequestParam String username, 
             @RequestParam String password) {
        
-        return this.personService.login(username, password);
+        return userService.login(username, password);
     }
 }

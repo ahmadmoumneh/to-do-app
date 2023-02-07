@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 @ControllerAdvice
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api/todoapp/category")
+@RequestMapping("/api/todoapp")
 public class CategoryController {
     @Autowired 
     private CategoryService categoryService;
@@ -45,9 +45,9 @@ public class CategoryController {
         return this.categoryService.saveCategory(category);
     }
     
-    @PutMapping("/editcategory/{id}")
+    @PutMapping("/editcategory")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public Category editCategory(Category category) {
+    public Category editCategory(@RequestBody Category category) {
         return this.categoryService.saveCategory(category);
     }
     

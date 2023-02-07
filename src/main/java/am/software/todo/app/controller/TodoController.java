@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 @ControllerAdvice
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api/todoapp/todo")
+@RequestMapping("/api/todoapp")
 public class TodoController {
     
     @Autowired 
@@ -47,9 +47,9 @@ public class TodoController {
         return this.todoService.saveToDo(toDo);
     }
     
-    @PutMapping("/edittodo/{id}")
+    @PutMapping("/edittodo")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public ToDo editTodo(ToDo toDo) {
+    public ToDo editTodo(@RequestBody ToDo toDo) {
         return this.todoService.saveToDo(toDo);
     }
     
@@ -59,7 +59,7 @@ public class TodoController {
         this.todoService.deleteToDoById(id);
     }
     
-    @GetMapping("/user/{id}")
+    @GetMapping("/todo/{id}")
     public ToDo getTodo(@PathVariable int id) throws Exception {       
         return this.todoService.getToDoById(id);
     }
@@ -70,8 +70,8 @@ public class TodoController {
     }
     
     @GetMapping("/searchtodo/category")
-    public List<ToDo> searchTodo(Category category) throws Exception {       
-        return this.todoService.findByCategory(category);
+    public List<ToDo> searchTodo(@PathVariable int categoryId) throws Exception {       
+        return this.todoService.findByCategoryId(categoryId);
     }
     
     @GetMapping("/searchtodo/notdone")

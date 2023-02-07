@@ -41,8 +41,8 @@ public class ToDoServiceImpl implements ToDoService {
     }
 
     @Override
-    public List<ToDo> findByCategory(Category category) {
-        return toDoRepository.findByCategory(category);
+    public List<ToDo> findByCategoryId(int categoryId) {
+        return toDoRepository.findByCategoryId(categoryId);
     }
 
     @Override

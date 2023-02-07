@@ -4,12 +4,10 @@
  */
 package am.software.todo.app.controller;
 
-import am.software.todo.app.dto.Person;
+import am.software.todo.app.dto.User;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import am.software.todo.app.service.PersonService;
+import am.software.todo.app.service.UserService;
 
 /**
  *
@@ -33,22 +31,22 @@ import am.software.todo.app.service.PersonService;
 @RequestMapping("/api/todoapp/admin")
 public class AdminController {
     @Autowired 
-    private PersonService userService;
+    private UserService userService;
     
     @GetMapping("/users")
-    public List<Person> getAllUsers() {
+    public List<User> getAllUsers() {
         return this.userService.getAllUsers();
     }
     
     @PostMapping("/adduser")
     @ResponseStatus(HttpStatus.CREATED)
-    public Person addUser(@RequestBody Person user) {
+    public User addUser(@RequestBody User user) {
         return this.userService.saveUser(user);
     }
     
-    @PutMapping("/edituser/{id}")
+    @PutMapping("/edituser")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public Person editUser(Person user) {
+    public User editUser(@RequestBody User user) {
         return this.userService.saveUser(user);
     }
     
@@ -59,7 +57,7 @@ public class AdminController {
     }
     
     @GetMapping("/user/{id}")
-    public Person getUser(@PathVariable int id) {       
+    public User getUser(@PathVariable int id) {       
         return this.userService.getUserById(id);
     }
 }
