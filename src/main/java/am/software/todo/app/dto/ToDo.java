@@ -29,14 +29,16 @@ public class ToDo {
     @Column(nullable = false, columnDefinition = "boolean default false")
     private boolean isDone;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+            //(cascade = CascadeType.ALL)
     @JoinColumn(
             name = "category_id",
             referencedColumnName = "id"
     )
     Category category;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+            //(cascade = CascadeType.ALL)
     @JoinColumn(
             name = "user_id",
             referencedColumnName = "id"

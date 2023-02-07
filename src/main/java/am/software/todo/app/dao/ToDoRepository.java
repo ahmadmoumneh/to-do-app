@@ -2,7 +2,10 @@ package am.software.todo.app.dao;
 
 import am.software.todo.app.dto.Category;
 import am.software.todo.app.dto.ToDo;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,4 +20,5 @@ public interface ToDoRepository extends JpaRepository<ToDo, Integer> {
     List<ToDo> findByCategory(Category category);
 
     List<ToDo> findByIsDoneFalse();
+
 }
