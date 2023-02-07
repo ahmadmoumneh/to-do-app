@@ -69,7 +69,7 @@ public class TodoController {
         return this.todoService.findByNameContaining(query);
     }
     
-    @GetMapping("/searchtodo/category")
+    @GetMapping("/searchtodo/category/{id}")
     public List<ToDo> searchTodo(@PathVariable int categoryId) throws Exception {       
         return this.todoService.findByCategoryId(categoryId);
     }
