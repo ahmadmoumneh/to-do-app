@@ -1,6 +1,11 @@
-<ul>
-  <li [ngClass]="{done: todo.done}" *ngFor="let todo of todos">
-    {{ todo.name }}
-    <input #checkbox type="checkbox" [checked]="todo.done" (change)="setDone(todo, checkbox.checked)" />
-  </li>
-</ul>
+<div *ngFor="let category of categories">
+  <h1><strong>{{ category.name }}</strong></h1>
+  <ul class="todos">
+    <li [ngClass]="{done: todo.done}" *ngFor="let todo of todos">
+      <div *ngIf="todo.category.id === category.id">
+        <input #checkbox type="checkbox" [checked]="todo.done" (change)="setDone(todo, checkbox.checked)" />
+        <span (click)="setDone(todo, !checkbox.checked)">{{ todo.name }}</span>
+      </div>
+    </li>
+  </ul>
+</div>
