@@ -70,8 +70,8 @@ public class TodoController {
     }
     
     @GetMapping("/searchtodo/category/{id}")
-    public List<ToDo> searchTodo(@PathVariable int categoryId) throws Exception {       
-        return this.todoService.findByCategoryId(categoryId);
+    public List<ToDo> searchTodo(@PathVariable int id) throws Exception {       
+        return this.todoService.findByCategoryId(id);
     }
     
     @GetMapping("/searchtodo/notdone")

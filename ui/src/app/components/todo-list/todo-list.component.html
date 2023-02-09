@@ -1,0 +1,9 @@
+<ul>
+  <li [ngClass]="{done: todo.done}" *ngFor="let todo of todos">
+    <div class="todos">
+      <input #checkbox type="checkbox" [checked]="todo.done" (change)="setDone(todo, checkbox.checked)" />
+      <span (click)="setDone(todo, !checkbox.checked)">{{ todo.name }}</span>
+      <span class="description">{{ todo.description }}</span>
+    </div>
+  </li>
+</ul>

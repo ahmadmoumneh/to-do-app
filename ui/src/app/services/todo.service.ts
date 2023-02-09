@@ -21,7 +21,7 @@ export class TodoService {
     return this.http.put<Todo>(this.serverUrl + '/edittodo', todo);
   }
 
-  getAllTodos(): Observable<Todo[]> {
-    return this.http.get<Todo[]>(this.serverUrl + '/todos');
+  getTodosByCategory(id: number): Observable<Todo[]> {
+    return this.http.get<Todo[]>(this.serverUrl + '/searchtodo/category/' + id);
   }
 }

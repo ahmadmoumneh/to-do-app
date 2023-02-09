@@ -1,11 +1,6 @@
+<app-add-todo (todoAdded)="updateTodos()"></app-add-todo><br>
 <div *ngFor="let category of categories">
   <h1><strong>{{ category.name }}</strong></h1>
-  <ul class="todos">
-    <li [ngClass]="{done: todo.done}" *ngFor="let todo of todos">
-      <div *ngIf="todo.category.id === category.id">
-        <input #checkbox type="checkbox" [checked]="todo.done" (change)="setDone(todo, checkbox.checked)" />
-        <span (click)="setDone(todo, !checkbox.checked)">{{ todo.name }}</span>
-      </div>
-    </li>
-  </ul>
+  <app-todo-list [category]="category"></app-todo-list>
 </div>
+  
